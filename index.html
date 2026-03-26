@@ -34,9 +34,14 @@
             let result = (document.getElementById('firstnumber').value) * document.getElementById('secondnumber').value
             document.getElementById('result').innerText = result
         }
-        else{
+        else if(document.getElementById('operator').value == "division"){
+            if(document.getElementById('secondnumber').value == 0){
+                alert('На ноль делить нельзя')
+            }
+            else{
             let result = document.getElementById('firstnumber').value / document.getElementById('secondnumber').value
             document.getElementById('result').innerText = result
+            }
         }
     })
 
