@@ -4,49 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background: #fef0f0;
+        }
+        .card{
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ffd2d9;
+            border-radius: 12px;
+            width: fit-content;
+            margin: auto;
+            padding-left:15px;
+            padding-right: 15px;
+        }
+        .card h3{
+            color: #d46b7a;
+        }
+        .card-text p {
+            color: #af83a4;
+        }
+        button{
+            background: #d46b7a;
+            color: white;
+            border-radius: 6px;
+            height: 35px;
+            border: none;
+            cursor: pointer;
+        }
+        .button-group{
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding-top: 20px;
+        }
+        .card-text{
+            width: 250px;
+        }
+        #giff{
+            display: flex;
+            justify-content: center;
+        }
+        #giff img{
+            border-radius: 20px;
+            margin-top: 20px;
+            max-width: 300px;
+        }
+        #giff video{
+            border-radius: 20px;
+            margin-top: 20px;
+            max-width: 300px;
+        }
+        
+    </style>
 </head>
 <body>
-    <div class="calc">
-        <input type="number" id="firstnumber"></input>
-        <select name="operator"   id="operator">
-            <option value="plus">+</option>
-            <option value="minus">-</option>
-            <option value="multiplication">*</option>
-            <option value="division">/</option>
-        </select>
-        <input type="number" id="secondnumber"></input>
-        <button type="button" id="butt">выполнить действие</button>
-    </div>
-    <p id="result"></p>
+    <main>
+        <div class="card">
+            <h3>С днем рождения котеночек!!!❤️😽</h3>
+            <div class="card-text">
+                <p>Поздравляю тебя с днём рождения!
+Желаю счастья, здоровья и всего самого наилучшего.
+Я тебя очень сильно люблю❤️. Ты самая лучшая, красивая, умная, милая и самая прекрасная.
+Никогда не сомневайся в себе и никогда не сдавайся — у тебя всё получится ❤️</p>
+            </div>
+        </div>
+        <div class="button-group">
+            <button type="submit" id="gif">Секретная кнопка №1</button>
+                <button type="submit" id="gif1">Секретная кнопка №2</button>
+                 <button type="submit" id="gif2">Секретная кнопка №3</button>
+        </div>
+        <div id="giff">
+
+        </div>
+    </main>
 </body>
-
-<script>
-    document.getElementById('butt').addEventListener('click',e=>{
-        if(document.getElementById('operator').value == "plus" ){
-            let result = (Number(document.getElementById('firstnumber').value)) + (Number (document.getElementById('secondnumber').value))
-            document.getElementById('result').innerText = result
-        }
-        else if(document.getElementById('operator').value == "minus"){
-            let result = document.getElementById('firstnumber').value - document.getElementById('secondnumber').value
-            document.getElementById('result').innerText = result
-        }
-        else if(document.getElementById('operator').value == "multiplication"){
-            let result = (document.getElementById('firstnumber').value) * document.getElementById('secondnumber').value
-            document.getElementById('result').innerText = result
-        }
-        else if(document.getElementById('operator').value == "division"){
-            if(document.getElementById('secondnumber').value == 0){
-                alert('На ноль делить нельзя')
-            }
-            else{
-            let result = document.getElementById('firstnumber').value / document.getElementById('secondnumber').value
-            document.getElementById('result').innerText = result
-            }
-        }
-    })
-
-
-</script>
-
-
+    <script>
+        document.getElementById("gif").addEventListener('click',e=>{
+            let img = document.createElement("img")
+            img.src = "https://i.pinimg.com/originals/9c/1e/db/9c1edbef4d09afbf55fcd2be136b11df.gif"
+            document.getElementById("giff").appendChild(img)
+            document.getElementById("gif").remove()
+        })
+        document.getElementById("gif1").addEventListener('click',e=>{
+            let img = document.createElement("img")
+            img.src = 'https://i.pinimg.com/originals/c3/bb/4d/c3bb4d7ea3365dce2df03e17e659d058.gif'
+            
+            document.getElementById('giff').appendChild(img)
+            document.getElementById('gif1').remove()
+        })
+        document.getElementById("gif2").addEventListener('click',e=>{
+            let video = document.createElement("video");
+            video.src = '0c2dcbc14543d46a851773b9b4ec9405.mp4'; // Путь к вашему видеофайлу
+            video.controls = true; // Добавляет элементы управления (play, pause и т.д.)
+            video.autoplay = false; // Не запускать автоматически
+            video.loop = false; // Не повторять
+            video.style.maxWidth = '100%';
+            video.style.borderRadius = '20px';
+            video.style.marginTop = '20px';
+            document.getElementById('giff').appendChild(video);
+            this.remove();
+        })
+                
+    </script>
 </html>
